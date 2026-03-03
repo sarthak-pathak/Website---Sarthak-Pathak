@@ -2,139 +2,111 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Sarthak Pathak | Portfolio</title>
+<title>Sarthak Pathak</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family: 'Inter', sans-serif;
-background:#f8fafc;
-color:#1f2933;
-line-height:1.6;
+font-family:'Inter',sans-serif;
+margin:0;
+background:#ffffff;
+color:#111;
 }
 
 .container{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
-padding:40px 20px;
-}
-
-header{
-background:#375f8c;
-color:white;
-padding:80px 20px;
-text-align:center;
-}
-
-header h1{
-font-size:48px;
-margin-bottom:10px;
-}
-
-header p{
-font-size:20px;
-opacity:0.9;
+padding:80px 30px;
 }
 
 nav{
-background:white;
-box-shadow:0 2px 8px rgba(0,0,0,0.08);
-padding:15px;
-text-align:center;
-position:sticky;
-top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 40px;
 }
 
 nav a{
-margin:0 20px;
 text-decoration:none;
-color:#375f8c;
+margin-left:25px;
+color:#111;
+font-weight:500;
+}
+
+.hero{
+margin-top:120px;
+}
+
+.hero h1{
+font-size:60px;
 font-weight:600;
-}
-
-h2{
-font-size:28px;
 margin-bottom:20px;
-color:#375f8c;
 }
 
-.about p{
-max-width:700px;
+.hero p{
+font-size:22px;
+color:#555;
 }
 
 .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-margin-top:30px;
+margin-top:120px;
 }
 
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:0.2s;
+.project{
+border-top:1px solid #eee;
+padding:40px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.card:hover{
-transform:translateY(-5px);
+.project h3{
+font-size:26px;
+margin:0;
 }
 
-.card h3{
-margin-bottom:10px;
-color:#111827;
+.project span{
+color:#666;
 }
 
-.card p{
-font-size:15px;
-margin-bottom:15px;
-}
-
-.card a{
+.project a{
 text-decoration:none;
-color:#375f8c;
-font-weight:600;
+color:#111;
 }
 
-.resume-btn{
-margin-top:20px;
-display:inline-block;
-padding:12px 25px;
-background:#375f8c;
-color:white;
-border-radius:6px;
+.project:hover{
+background:#fafafa;
+}
+
+.about{
+margin-top:120px;
+max-width:600px;
+}
+
+.about p{
+font-size:18px;
+color:#444;
+}
+
+.resume{
+margin-top:80px;
+}
+
+.resume a{
 text-decoration:none;
 font-weight:600;
-}
-
-.resume-btn:hover{
-background:#27496d;
-}
-
-.contact a{
-color:#375f8c;
-font-weight:600;
-text-decoration:none;
 }
 
 footer{
+margin-top:120px;
+padding:40px;
 text-align:center;
-padding:30px;
-margin-top:40px;
-background:#f1f5f9;
+color:#888;
 }
 
 </style>
@@ -143,105 +115,83 @@ background:#f1f5f9;
 
 <body>
 
-<header>
-
-<h1>Sarthak Pathak</h1>
-
-<p>Management Information Systems Student | Data Analytics | Web Applications</p>
-
-</header>
-
 <nav>
 
+<div><strong>Sarthak Pathak</strong></div>
+
+<div>
+<a href="#work">Work</a>
 <a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#resume">Resume</a>
-<a href="#contact">Contact</a>
+<a href="resume.pdf">Resume</a>
+<a href="mailto:sarthak.pathak@temple.edu">Contact</a>
+</div>
 
 </nav>
 
 <div class="container">
 
-<section id="about" class="about">
+<section class="hero">
 
-<h2>About Me</h2>
+<h1>Hi, I'm Sarthak.</h1>
 
 <p>
-I am a Management Information Systems student at Temple University’s Fox School of Business with experience analyzing multi-million-dollar research funding datasets and developing Python and JavaScript applications. My interests include data analytics, financial systems, business intelligence, and technology consulting.
+Management Information Systems student at Temple University focused on
+data analytics, financial systems, and web application development.
 </p>
 
 </section>
 
-<section id="projects">
+<section id="work" class="projects">
 
-<h2>Projects</h2>
+<h2>Selected Work</h2>
 
-<div class="projects">
-
-<div class="card">
-
-<h3>German Translation Application</h3>
-
-<p>Python application that simulates an interactive language-learning system using structured validation and quiz logic.</p>
-
-<a href="https://github.com/sarthak-pathak/German-Translation-Application">View on GitHub →</a>
-
-</div>
-
-<div class="card">
-
-<h3>Calorify – Desktop Calorie Tracker</h3>
-
-<p>Python analytics tool that calculates personalized calorie targets and tracks progress toward fitness goals.</p>
-
-<a href="https://github.com/sarthak-pathak/Calorify">View on GitHub →</a>
-
-</div>
-
-<div class="card">
-
+<div class="project">
+<a href="https://github.com/sarthak-pathak/Financial-Calculator-Web-Application">
 <h3>Loan Repayment Calculator</h3>
-
-<p>JavaScript web calculator that computes loan amortization payments and dynamically updates repayment schedules.</p>
-
-<a href="https://github.com/sarthak-pathak/Financial-Calculator-Web-Application">View on GitHub →</a>
-
+<span>JavaScript / HTML / CSS</span>
+</a>
 </div>
 
-<div class="card">
+<div class="project">
+<a href="https://github.com/sarthak-pathak/Calorify">
+<h3>Calorify – Calorie Tracking App</h3>
+<span>Python</span>
+</a>
+</div>
 
+<div class="project">
+<a href="https://github.com/sarthak-pathak/German-Translation-Application">
+<h3>German Translation Application</h3>
+<span>Python</span>
+</a>
+</div>
+
+<div class="project">
+<a href="https://github.com/sarthak-pathak/Aptitude-Calculator">
 <h3>Aptitude Calculator – Exam Time Manager</h3>
-
-<p>Web tool that calculates time-per-question strategies and projected exam scores for aptitude test preparation.</p>
-
-<a href="https://github.com/sarthak-pathak/Aptitude-Calculator">View on GitHub →</a>
-
-</div>
-
+<span>JavaScript</span>
+</a>
 </div>
 
 </section>
 
-<section id="resume">
+<section id="about" class="about">
+
+<h2>About</h2>
+
+<p>
+I work with data analytics, financial reporting, and web development.
+Currently working as an ERA Junior Analyst at Temple University analyzing
+multi-million dollar research funding datasets using Excel and Access.
+</p>
+
+</section>
+
+<section class="resume">
 
 <h2>Resume</h2>
 
-<p>You can download my resume below.</p>
-
-<a class="resume-btn" href="resume.pdf">Download Resume</a>
-
-</section>
-
-<section id="contact" class="contact">
-
-<h2>Contact</h2>
-
-<p>Email: <a href="mailto:sarthak.pathak@temple.edu">sarthak.pathak@temple.edu</a></p>
-
-<p>
-<a href="https://linkedin.com/in/sarthakpathak-">LinkedIn</a> |
-<a href="https://github.com/sarthak-pathak">GitHub</a>
-</p>
+<a href="resume.pdf">Download Resume →</a>
 
 </section>
 
@@ -249,7 +199,7 @@ I am a Management Information Systems student at Temple University’s Fox Schoo
 
 <footer>
 
-<p>© 2026 Sarthak Pathak</p>
+© 2026 Sarthak Pathak
 
 </footer>
 
