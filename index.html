@@ -1,207 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Sarthak Pathak</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 
 body{
 font-family:'Inter',sans-serif;
 margin:0;
-background:#ffffff;
+background:linear-gradient(135deg,#f8fafc,#eef2ff);
 color:#111;
 }
 
+/* container */
+
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:80px 30px;
 }
+
+/* navigation */
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 40px;
+position:sticky;
+top:0;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:10;
 }
 
 nav a{
-text-decoration:none;
 margin-left:25px;
-color:#111;
+text-decoration:none;
+color:#444;
 font-weight:500;
+transition:0.2s;
 }
 
-.hero{
-margin-top:120px;
+nav a:hover{
+color:#000;
 }
+
+/* hero */
 
 .hero h1{
-font-size:60px;
-font-weight:600;
-margin-bottom:20px;
+font-size:64px;
+margin-bottom:10px;
 }
 
 .hero p{
-font-size:22px;
+font-size:20px;
 color:#555;
+max-width:700px;
 }
 
-.projects{
-margin-top:120px;
-}
+/* section */
 
-.project{
-border-top:1px solid #eee;
-padding:40px 0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.project h3{
-font-size:26px;
-margin:0;
-}
-
-.project span{
-color:#666;
-}
-
-.project a{
-text-decoration:none;
-color:#111;
-}
-
-.project:hover{
-background:#fafafa;
-}
-
-.about{
-margin-top:120px;
-max-width:600px;
-}
-
-.about p{
-font-size:18px;
-color:#444;
-}
-
-.resume{
+.section{
 margin-top:80px;
 }
 
-.resume a{
-text-decoration:none;
-font-weight:600;
+.section h2{
+font-size:28px;
+margin-bottom:40px;
 }
 
-footer{
-margin-top:120px;
-padding:40px;
-text-align:center;
-color:#888;
+/* projects */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.project{
+background:white;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:all 0.25s ease;
+}
+
+.project:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.project h3{
+margin-top:0;
+}
+
+.project p{
+color:#666;
+font-size:15px;
+}
+
+.project a{
+display:inline-block;
+margin-top:10px;
+color:#2563eb;
+font-weight:500;
+text-decoration:none;
+}
+
+.project a:hover{
+text-decoration:underline;
 }
 
 </style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div><strong>Sarthak Pathak</strong></div>
-
-<div>
-<a href="#work">Work</a>
-<a href="#about">About</a>
-<a href="resume.pdf">Resume</a>
-<a href="mailto:sarthak.pathak@temple.edu">Contact</a>
-</div>
-
-</nav>
-
-<div class="container">
-
-<section class="hero">
-
-<h1>Hi, I'm Sarthak.</h1>
-
-<p>
-Management Information Systems student at Temple University focused on
-data analytics, financial systems, and web application development.
-</p>
-
-</section>
-
-<section id="work" class="projects">
-
-<h2>Selected Work</h2>
-
-<div class="project">
-<a href="https://github.com/sarthak-pathak/Financial-Calculator-Web-Application">
-<h3>Loan Repayment Calculator</h3>
-<span>JavaScript / HTML / CSS</span>
-</a>
-</div>
-
-<div class="project">
-<a href="https://github.com/sarthak-pathak/Calorify">
-<h3>Calorify – Calorie Tracking App</h3>
-<span>Python</span>
-</a>
-</div>
-
-<div class="project">
-<a href="https://github.com/sarthak-pathak/German-Translation-Application">
-<h3>German Translation Application</h3>
-<span>Python</span>
-</a>
-</div>
-
-<div class="project">
-<a href="https://github.com/sarthak-pathak/Aptitude-Calculator">
-<h3>Aptitude Calculator – Exam Time Manager</h3>
-<span>JavaScript</span>
-</a>
-</div>
-
-</section>
-
-<section id="about" class="about">
-
-<h2>About</h2>
-
-<p>
-I work with data analytics, financial reporting, and web development.
-Currently working as an ERA Junior Analyst at Temple University analyzing
-multi-million dollar research funding datasets using Excel and Access.
-</p>
-
-</section>
-
-<section class="resume">
-
-<h2>Resume</h2>
-
-<a href="resume.pdf">Download Resume →</a>
-
-</section>
-
-</div>
-
-<footer>
-
-© 2026 Sarthak Pathak
-
-</footer>
-
-</body>
-</html>
