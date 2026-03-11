@@ -1,379 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarthak Pathak | Portfolio</title>
+  <meta name="description" content="Sarthak Pathak — Management Information Systems student at Temple University focused on data analytics, financial reporting, and web application development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-2: #0d1730;
+      --panel: rgba(255,255,255,0.08);
+      --panel-2: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #f4f7fb;
+      --muted: rgba(244,247,251,0.74);
+      --muted-2: rgba(244,247,251,0.58);
+      --brand: #7c9cff;
+      --brand-2: #63d8ff;
+      --glow: rgba(124,156,255,0.32);
+      --success: #74f0b3;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(124,156,255,0.22), transparent 22%),
+        radial-gradient(circle at 88% 12%, rgba(99,216,255,0.18), transparent 24%),
+        radial-gradient(circle at 70% 84%, rgba(124,156,255,0.12), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      overflow-x: hidden;
+    }
 
-<title>Sarthak Pathak | Portfolio</title>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+      z-index: 0;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-<style>
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(8,16,31,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-:root{
---bg:#08101f;
---bg-2:#0d1730;
---panel:rgba(255,255,255,0.08);
---panel-2:rgba(255,255,255,0.06);
---line:rgba(255,255,255,0.12);
---text:#f4f7fb;
---muted:rgba(244,247,251,0.74);
---muted-2:rgba(244,247,251,0.58);
---brand:#7c9cff;
---brand-2:#63d8ff;
---max:1180px;
---radius:22px;
-}
+    .nav {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
 
-*{
-box-sizing:border-box;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-html{
-scroll-behavior:smooth;
-}
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 0 0 8px rgba(124,156,255,0.12), 0 0 30px var(--glow);
+      flex: 0 0 auto;
+    }
 
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-color:var(--text);
+    .brand-copy {
+      min-width: 0;
+    }
 
-background:
-radial-gradient(circle at 12% 18%, rgba(124,156,255,0.22), transparent 22%),
-radial-gradient(circle at 88% 12%, rgba(99,216,255,0.18), transparent 24%),
-linear-gradient(180deg,var(--bg),var(--bg-2));
-}
+    .brand-copy h1 {
+      font-size: 16px;
+      line-height: 1.2;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
-.wrap{
-width:min(var(--max),calc(100% - 32px));
-margin:auto;
-}
+    .brand-copy p {
+      margin: 2px 0 0;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
 
-/* NAVBAR */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.nav-shell{
-position:sticky;
-top:0;
-backdrop-filter:blur(16px);
-background:rgba(8,16,31,0.7);
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: 180ms ease;
+    }
 
-.nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 0;
-}
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+    }
 
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-}
+    .hero {
+      padding: 60px 0 26px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
 
-.brand-mark{
-width:14px;
-height:14px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--brand),var(--brand-2));
-}
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .timeline-item,
+    .project-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
 
-.brand-copy h1{
-margin:0;
-font-size:16px;
-}
+    .hero-main {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.brand-copy p{
-margin:0;
-font-size:12px;
-color:var(--muted-2);
-}
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -140px auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(99,216,255,0.35) 0%, rgba(99,216,255,0) 70%);
+      filter: blur(16px);
+    }
 
-.nav-links a{
-padding:10px 14px;
-border-radius:999px;
-font-size:14px;
-color:var(--muted);
-text-decoration:none;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
 
-.nav-links a:hover{
-background:rgba(255,255,255,0.08);
-color:white;
-}
+    .eyebrow .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 8px rgba(116,240,179,0.12);
+    }
 
-/* HERO */
+    .hero-main h2 {
+      font-size: clamp(44px, 8vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin: 0 0 16px;
+    }
 
-.hero{
-padding:80px 0;
-display:grid;
-grid-template-columns:320px 1fr 320px;
-gap:40px;
-align-items:center;
-}
+    .hero-main p {
+      max-width: 58ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
 
-/* PROFILE CARD */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-.profile-wrapper{
-display:flex;
-justify-content:center;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
 
-.profile-card{
-width:300px;
-height:360px;
-border-radius:26px;
-overflow:hidden;
-position:relative;
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.11);
+    }
 
-border:1px solid rgba(255,255,255,0.15);
-background:rgba(255,255,255,0.05);
+    .btn.primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #08101f;
+      border: none;
+      box-shadow: 0 12px 34px rgba(124,156,255,0.28);
+    }
 
-box-shadow:0 30px 80px rgba(0,0,0,0.6);
-}
+    .hero-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-.profile-card img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+    .side-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
 
-.profile-card::before{
-content:"";
-position:absolute;
-top:0;
-left:-75%;
-width:50%;
-height:100%;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.4),
-transparent
-);
-transform:skewX(-25deg);
-}
+    .side-title {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin: 0;
+    }
 
-.profile-card:hover::before{
-animation:shine 1.2s forwards;
-}
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+    }
 
-@keyframes shine{
-100%{left:125%;}
-}
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
 
-/* HERO CENTER */
+    .metric {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      padding: 14px;
+    }
 
-.hero-main{
-padding:30px;
-border:1px solid var(--line);
-border-radius:var(--radius);
-background:linear-gradient(180deg,var(--panel),var(--panel-2));
-}
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+      letter-spacing: -0.03em;
+    }
 
-.hero-main h2{
-font-size:48px;
-margin:0 0 20px;
-}
+    .metric span {
+      font-size: 12px;
+      color: var(--muted-2);
+    }
 
-.hero-actions{
-margin-top:20px;
-display:flex;
-gap:12px;
-}
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.btn{
-padding:12px 18px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,0.12);
-background:rgba(255,255,255,0.06);
-text-decoration:none;
-color:white;
-}
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      transition: 180ms ease;
+    }
 
-.btn.primary{
-background:linear-gradient(135deg,var(--brand),var(--brand-2));
-color:black;
-border:none;
-}
+    .mini-link:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-1px);
+    }
 
-/* SIDE CARD */
+    .hero-contact {
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-.hero-side{
-padding:24px;
-border:1px solid var(--line);
-border-radius:var(--radius);
-background:linear-gradient(180deg,var(--panel),var(--panel-2));
-}
+    .section {
+      padding-top: 24px;
+    }
 
-.metrics{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
 
-.metric{
-padding:14px;
-border-radius:16px;
-background:rgba(255,255,255,0.05);
-}
+    .section-header h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
 
-.metric strong{
-display:block;
-font-size:20px;
-}
+    .section-header p {
+      margin: 0;
+      color: var(--muted-2);
+      font-size: 14px;
+    }
 
-/* PROJECTS */
+    .section-card {
+      padding: 22px;
+    }
 
-.section{
-margin-top:60px;
-}
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
 
-.projects-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
+    .timeline-item {
+      padding: 18px;
+    }
 
-.project-card{
-border:1px solid var(--line);
-border-radius:var(--radius);
-background:var(--panel);
-padding:20px;
-}
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
 
-/* FOOTER */
+    .timeline-top h4 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
 
-footer{
-padding:40px 0;
-display:flex;
-justify-content:space-between;
-color:var(--muted);
-font-size:13px;
-}
+    .timeline-top p,
+    .timeline-item ul,
+    .about-copy p,
+    .contact-card p,
+    .resume-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
-@media(max-width:980px){
+    .timeline-top .meta {
+      text-align: right;
+      font-size: 14px;
+      color: var(--muted-2);
+      min-width: 170px;
+    }
 
-.hero{
-grid-template-columns:1fr;
-}
+    .timeline-item ul {
+      padding-left: 18px;
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
 
-.projects-grid{
-grid-template-columns:1fr;
-}
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
 
-}
+    .project-card {
+      overflow: hidden;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
 
-</style>
+    .project-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.18);
+    }
 
+    .project-head {
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .project-head h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .project-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .project-footer {
+      padding: 14px 18px 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .project-footer a {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .about-copy strong {
+      color: var(--text);
+    }
+
+    .skills-list,
+    .leadership-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .skills-item,
+    .leadership-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .resume-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+    }
+
+    .resume-card,
+    .contact-card {
+      padding: 20px;
+    }
+
+    .resume-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 34px 0 10px;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: -2px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .two-col,
+      .resume-layout,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links,
+      .nav .btn,
+      .cta {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap,
+      .nav {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .timeline-item,
+      .project-card,
+      .resume-card,
+      .contact-card {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-main h2 {
+        font-size: 42px;
+      }
+
+      .hero-main p,
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="nav-shell">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span class="brand-copy">
+          <h1>Sarthak Pathak</h1>
+          <p>MIS Student • Data Analytics • Web Development</p>
+        </span>
+      </a>
 
-<div class="nav-shell">
-<nav class="nav wrap">
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
 
-<a class="brand">
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-main reveal">
+        <div class="eyebrow"><span class="pulse"></span> Open to internships and analyst roles</div>
+        <h2>Building clean, useful tools for data, reporting, and decision-making.</h2>
+        <p class="subtitle">
+          I’m a Management Information Systems student at Temple University with hands-on experience analyzing multi-million-dollar research funding datasets and building Python and JavaScript applications.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+          <a class="btn" href="#work">View Projects</a>
+          <a class="btn" href="mailto:sarthak.pathak@temple.edu">Email Me</a>
+        </div>
+      </div>
 
-<span class="brand-mark"></span>
+      <aside class="hero-side reveal">
+        <div class="side-top">
+          <p class="side-title">Quick Snapshot</p>
+          <span class="pill">Philadelphia, PA</span>
+        </div>
 
-<span class="brand-copy">
-<h1>Sarthak Pathak</h1>
-<p>MIS Student • Data Analytics • Web Development</p>
-</span>
+        <div class="metrics">
+          <div class="metric"><strong>50+</strong><span>Departments supported in ERA reporting</span></div>
+          <div class="metric"><strong>15+</strong><span>Monthly financial and operational reports</span></div>
+          <div class="metric"><strong>1,000+</strong><span>Grant and proposal records validated</span></div>
+          <div class="metric"><strong>3.4</strong><span>Semester GPA</span></div>
+        </div>
 
-</a>
+        <div class="hero-links">
+          <a class="mini-link" href="tel:+12674612988">Call</a>
+          <a class="mini-link" href="mailto:sarthak.pathak@temple.edu">Email</a>
+          <a class="mini-link" href="https://linkedin.com/in/sarthakpathak-" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="mini-link" href="https://github.com/sarthak-pathak" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
 
-<div class="nav-links">
-<a href="#work">Work</a>
-<a href="#experience">Experience</a>
-<a href="#about">About</a>
-<a href="#resume">Resume</a>
-<a href="#contact">Contact</a>
-</div>
+        <div class="hero-contact">
+          <div><strong>Phone:</strong> +1 (267) 461-2988</div>
+          <div><strong>Email:</strong> sarthak.pathak@temple.edu</div>
+          <div><strong>School:</strong> Temple University, Fox School of Business</div>
+        </div>
+      </aside>
+    </section>
 
-</nav>
-</div>
+    <section id="work" class="section">
+      <div class="section-header reveal">
+        <h3>Technical Projects</h3>
+        <p>Selected work from Python, JavaScript, analytics, and optimization projects</p>
+      </div>
 
-<main class="wrap">
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-head">
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Language Learning</span>
+              <span class="tag">Validation</span>
+            </div>
+            <h4>German Translation Application</h4>
+            <p>Modular Python application with structured validation, translation checking, vocabulary testing, and dynamic quiz logic for interactive language learning.</p>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/sarthak-pathak/German-Translation-Application" target="_blank" rel="noreferrer">GitHub Repo</a>
+            <a class="btn" href="https://github.com/sarthak-pathak/German-Translation-Application" target="_blank" rel="noreferrer">View Project</a>
+          </div>
+        </article>
 
-<section class="hero">
+        <article class="project-card reveal">
+          <div class="project-head">
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">Health</span>
+            </div>
+            <h4>Calorify — Desktop Calorie Tracking Application</h4>
+            <p>Python desktop analytics tool that calculates personalized calorie targets from user health metrics and generates algorithm-based calorie recommendations.</p>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/sarthak-pathak/Calorify" target="_blank" rel="noreferrer">GitHub Repo</a>
+            <a class="btn" href="https://github.com/sarthak-pathak/Calorify" target="_blank" rel="noreferrer">View Project</a>
+          </div>
+        </article>
 
-<div class="profile-wrapper">
-<div class="profile-card">
-<img src="profile.jpg" alt="Sarthak Pathak">
-</div>
-</div>
+        <article class="project-card reveal">
+          <div class="project-head">
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Finance</span>
+              <span class="tag">Web App</span>
+            </div>
+            <h4>Loan Repayment Calculator</h4>
+            <p>Responsive JavaScript financial calculator that computes loan repayment schedules with formula-driven logic, real-time validation, and dynamic UI updates.</p>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/sarthak-pathak/Financial-Calculator-Web-Application" target="_blank" rel="noreferrer">GitHub Repo</a>
+            <a class="btn" href="https://github.com/sarthak-pathak/Financial-Calculator-Web-Application" target="_blank" rel="noreferrer">View Project</a>
+          </div>
+        </article>
 
-<div class="hero-main">
+        <article class="project-card reveal">
+          <div class="project-head">
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Strategy</span>
+            </div>
+            <h4>Aptitude Calculator — Exam Time Manager</h4>
+            <p>Web-based optimization tool that calculates recommended time allocation across exam sections and estimates projected scores using probability-based strategy logic.</p>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/sarthak-pathak/Aptitude-Calculator" target="_blank" rel="noreferrer">GitHub Repo</a>
+            <a class="btn" href="https://github.com/sarthak-pathak/Aptitude-Calculator" target="_blank" rel="noreferrer">View Project</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<h2>
-Building clean, useful tools for data, reporting, and decision-making.
-</h2>
+    <section id="experience" class="section">
+      <div class="section-header reveal">
+        <h3>Experience</h3>
+        <p>Analytical and operational work across research administration and IT support</p>
+      </div>
 
-<p>
-I’m a Management Information Systems student at Temple University with hands-on experience analyzing research datasets and building Python and JavaScript applications.
-</p>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-top">
+            <div>
+              <h4>ERA Junior Analyst</h4>
+              <p>Temple University — Office of the Vice President for Research</p>
+            </div>
+            <div class="meta">May 2024 – Present<br>Philadelphia, PA</div>
+          </div>
+          <ul>
+            <li>Analyze and maintain multi-million-dollar research funding datasets across 50+ university departments using Microsoft Access and Excel within the ERA system.</li>
+            <li>Generate and automate 15+ monthly financial and operational reports used by university leadership to monitor research funding and grant activity.</li>
+            <li>Perform structured data validation checks on 1,000+ grant and proposal records to ensure reporting accuracy and institutional compliance.</li>
+          </ul>
+        </article>
 
-<div class="hero-actions">
-<a class="btn primary" href="resume.pdf">Download Resume</a>
-<a class="btn" href="#work">View Projects</a>
-</div>
+        <article class="timeline-item reveal">
+          <div class="timeline-top">
+            <div>
+              <h4>IT Intern</h4>
+              <p>Bajaj Allianz Life Insurance</p>
+            </div>
+            <div class="meta">May 2022 – July 2022<br>Vadodara, India</div>
+          </div>
+          <ul>
+            <li>Coordinated IT workflow operations using Trello and Asana to manage 50+ technical tasks and issue tickets across the development team.</li>
+            <li>Assisted in documentation and tracking of server and system issues, improving troubleshooting efficiency and internal reporting processes.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-</div>
+    <section id="about" class="section">
+      <div class="section-header reveal">
+        <h3>About</h3>
+        <p>Background, skills, and leadership</p>
+      </div>
 
-<aside class="hero-side">
+      <div class="two-col">
+        <div class="section-card about-copy reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Background</h4>
+          <p>
+            I’m a <strong>Management Information Systems</strong> student at <strong>Temple University, Fox School of Business</strong> with a minor in <strong>Computer Science</strong>. My work sits at the intersection of data, reporting, systems, and business operations.
+          </p>
+          <p style="margin-top:12px;">
+            I’m strongest when turning messy data into clear reporting workflows, and when building practical tools that make processes easier for users and teams.
+          </p>
+        </div>
 
-<h4>Quick Snapshot</h4>
+        <div class="section-card reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Skills</h4>
+          <div class="skills-list">
+            <div class="skills-item"><strong>Languages:</strong> Python, Java, JavaScript</div>
+            <div class="skills-item"><strong>Data Tools:</strong> Microsoft Excel (Advanced), Tableau</div>
+            <div class="skills-item"><strong>Databases:</strong> MySQL, Microsoft Access</div>
+            <div class="skills-item"><strong>Web:</strong> HTML, CSS, REST APIs</div>
+            <div class="skills-item"><strong>Tools:</strong> Office 365, Trello, Asana</div>
+          </div>
+        </div>
+      </div>
 
-<div class="metrics">
+      <div class="two-col" style="margin-top:16px;">
+        <div class="section-card reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Education</h4>
+          <p>Temple University, Fox School of Business</p>
+          <p>B.B.A. in Management Information Systems — Minor: Computer Science</p>
+          <p style="margin-top:10px;"><strong>Expected:</strong> May 2027</p>
+          <p><strong>Dean’s List:</strong> Fall 2023</p>
+          <p style="margin-top:10px;"><strong>Relevant Coursework:</strong> Data and Analytics, Statistical Business Analytics, Quantitative Methods for Business II, Visualizing Data, Web Application Development, Financial and Managerial Accounting, Financial Management, Microeconomics, Macroeconomics, Risk Management</p>
+        </div>
 
-<div class="metric">
-<strong>50+</strong>
-<span>Departments Supported</span>
-</div>
+        <div class="section-card reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Leadership & Involvement</h4>
+          <div class="leadership-list">
+            <div class="leadership-item"><strong>Leo Club International — President</strong><br>2022 – Present</div>
+            <div class="leadership-item"><strong>Hindu Student Council (Temple University) — Vice President</strong><br>2024 – Present</div>
+            <div class="leadership-item"><strong>Project Ashram — Social Impact Initiative</strong><br>2021 – 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="metric">
-<strong>15+</strong>
-<span>Monthly Reports</span>
-</div>
+    <section id="resume" class="section">
+      <div class="section-header reveal">
+        <h3>Resume</h3>
+        <p>Open or download the latest PDF</p>
+      </div>
 
-<div class="metric">
-<strong>1000+</strong>
-<span>Grant Records</span>
-</div>
+      <div class="resume-layout">
+        <div class="resume-card reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Resume Links</h4>
+          <p>Use these links for recruiters, applications, and outreach.</p>
+          <div class="resume-actions">
+            <a class="btn primary" href="resume.pdf" target="_blank" rel="noreferrer">Open Resume</a>
+            <a class="btn" href="resume.pdf" download>Download PDF</a>
+            <a class="btn" href="https://linkedin.com/in/sarthakpathak-" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/sarthak-pathak" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
 
-<div class="metric">
-<strong>4+</strong>
-<span>Projects</span>
-</div>
+        <div class="resume-card reveal">
+          <h4 style="margin:0 0 10px;font-size:18px;">Preview</h4>
+          <p>Preview embedded below.</p>
+          <div style="margin-top:14px;">
+            <iframe title="Resume Preview" src="resume.pdf"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="contact" class="section">
+      <div class="section-header reveal">
+        <h3>Contact</h3>
+        <p>Fastest ways to reach me</p>
+      </div>
 
-</aside>
+      <div class="contact-card reveal">
+        <div class="contact-list">
+          <div><strong>Email:</strong> <a href="mailto:sarthak.pathak@temple.edu">sarthak.pathak@temple.edu</a></div>
+          <div><strong>Phone:</strong> <a href="tel:+12674612988">+1 (267) 461-2988</a></div>
+          <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sarthakpathak-" target="_blank" rel="noreferrer">linkedin.com/in/sarthakpathak-</a></div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/sarthak-pathak" target="_blank" rel="noreferrer">github.com/sarthak-pathak</a></div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:sarthak.pathak@temple.edu?subject=Interview%20Inquiry%20for%20Sarthak%20Pathak">Email Me</a>
+          <a class="btn" href="https://linkedin.com/in/sarthakpathak-" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <footer class="reveal">
+      <div>© <span id="year"></span> Sarthak Pathak</div>
+      <div>Built for internship recruiting • Hosted on GitHub Pages</div>
+    </footer>
+  </main>
 
-<footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<div>© <span id="year"></span> Sarthak Pathak</div>
-<div>Hosted on GitHub Pages</div>
-
-</footer>
-
-</main>
-
-<script>
-
-document.getElementById("year").textContent=new Date().getFullYear();
-
-</script>
-
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
